@@ -20,8 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/profile/{user}', function ($user) {
-    $user = User::with('comments', 'comments.likes')->withCount('comments')->where('id', $user)->firstOrFail();
-
-    return response()->json($user);
-});
+Route::get('/profile/{user}', 'UserController@comments');
