@@ -17,7 +17,7 @@ class CreateComments extends Migration
             $table->id();
             $table->text('comment');
             $table->integer('user_id')->unsigned();
-            $table->integer('by_user_id')->unsigned();
+            $table->integer('to_user_id')->unsigned();
             $table->timestamps();
         });
     }

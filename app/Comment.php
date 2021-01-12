@@ -11,6 +11,11 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function to_user()
+    {
+        return $this->belongsTo(User::class, 'to_user_id', 'id');
+    }
+
     public function likes() {
         return $this->hasMany(Like::class);
     }
